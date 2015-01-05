@@ -1,0 +1,9 @@
+#!/usr/bin/sh
+workdir=$(cygpath -w $(realpath $(pwd)) | sed s_\\\\_/_g | sed s_C:_/c_)
+status=$(boot2docker status)
+
+if [ "$status" = "poweroff" ]; then
+  boot2docker start
+fi
+
+boot2docker ssh -t "[ ! -e \"$workdir\" ] && sudo mkdir -p /c && sudo mount -t vboxsf c /c; [ -e \"$workdir\" ] && cd \"$workdir\" && docker $@"
