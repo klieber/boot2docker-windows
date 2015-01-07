@@ -20,7 +20,7 @@ ENTRYPOINT ["echo"]
 CMD ["hello world"]
 ```
 
-With the wrapper script you can just open up a Windows command prompt and enter the following to build the image and then it:
+With the wrapper script you can just open up a Windows command prompt and enter the following to build the image and then run it:
 ```batch
 > cd C:\example
 > docker build -t hello .
