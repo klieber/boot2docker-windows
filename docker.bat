@@ -4,7 +4,7 @@ FOR /F "tokens=* USEBACKQ" %%F IN (`boot2docker status`) DO (
   SET status=%%F
 )
 
-if "%status%" == "poweroff" (
+if "%status%" != "running" (
   boot2docker start
 )
 

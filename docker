@@ -2,7 +2,7 @@
 workdir=$(cygpath -w $(realpath $(pwd)) | sed s_\\\\_/_g | sed s_C:_/c_)
 status=$(boot2docker status)
 
-if [ "$status" = "poweroff" ]; then
+if [ "$status" != "running" ]; then
   boot2docker start
 fi
 
