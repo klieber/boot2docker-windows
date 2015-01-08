@@ -1,5 +1,6 @@
 #!/usr/bin/sh
-workdir=$(cygpath -w $(realpath $(pwd)) | sed s_\\\\_/_g | sed s_C:_/c_)
+
+workdir="$(cygpath -w "$(realpath "$(pwd)")" | sed s_\\\\_/_g | sed s_C:_/c_)"
 status=$(boot2docker status)
 
 if [ "$status" != "running" ]; then
